@@ -22,6 +22,10 @@ app.get("/" , (req,res)=>{
   app.use(express.static(path.resolve(__dirname, "frontend", "build")));
   res.sendFile(path.resolve(__dirname, "frontend", "build" , "index.html"));
 })
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+});
+
 app.listen(3000, (req, res) => {
   console.log("Listening to the server");
 });
